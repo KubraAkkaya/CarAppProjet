@@ -18,6 +18,7 @@ namespace CarAppProjet.Models.Classes
         public double Price { get; set; }
         public string FuelType { get; set; }
         public string Description { get; set; }
+        public string CarType { get; set; }
         public string PhotoCarURL { get; set; }
         public string GearType { get; set; }
         public string UserName { get; set; }
@@ -30,5 +31,8 @@ namespace CarAppProjet.Models.Classes
         public bool ParkingSensor { get; set; } 
         public bool CentralLocking { get; set; } //merkezi kilit
         public bool GlassCeiling { get; set; } //cam tavan
+        
+        public ICollection<Comment> Comments { get; set; }
+    
     }
 }

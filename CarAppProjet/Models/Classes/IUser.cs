@@ -6,9 +6,8 @@ using System.Web;
 
 namespace CarAppProjet.Models.Classes
 {
-    public interface IUser<T> where T : class, IAdvertise,IComment, ISearch
+    public interface IUser
     {
-        [Key]
         int Id { get; set; }
         string FirstName { get; set; }
         string LastName { get; set; }
