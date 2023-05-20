@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarAppProjet.Models.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,11 @@ namespace CarAppProjet.Controllers
     public class AboutController : Controller
     {
         // GET: About
-        public ActionResult Index()
+        Context c = new Context();
+        public ActionResult AboutIndex()
         {
-            return View();
+            var degerler = c.Abouts.ToList();
+            return View(degerler);
         }
     }
 }
