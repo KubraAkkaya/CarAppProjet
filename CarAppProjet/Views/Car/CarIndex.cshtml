@@ -1,4 +1,4 @@
-﻿
+﻿@model CarAppProjet.Models.Classes.CarBrandModel
 @{
     ViewBag.Title = "CarIndex";
     Layout = "~/Views/Shared/_TestLayout.cshtml";
@@ -24,6 +24,7 @@
     <div class="container">
         <br>
         <br>
+
         <div class="contact-form">
             <form action="#" id="contact">
                 <div class="row">
@@ -58,36 +59,11 @@
                             <label>Brand:</label>
 
                             <select>
-                                <option value="">-- ALFA ROMEO --</option>
-                                <option value="">-- AUDİ --</option>
-                                <option value="">-- ASTON MARTIN --</option>
-                                <option value="">-- BMW --</option>
-                                <option value="">-- BENTLY --</option>
-                                <option value="">-- ISUZU --</option>
-                                <option value="">-- FIAT --</option>
-                                <option value="">-- FORD --</option>
-                                <option value="">-- JEEP --</option>
-                                <option value="">-- KIA --</option>
-                                <option value="">-- LAND ROVER --</option>
-                                <option value="">-- LAMBORGHINI --</option>
-                                <option value="">-- MASERATI --</option>
-                                <option value="">-- MCLAREN --</option>
-                                <option value="">-- MINI --</option>
-                                <option value="">-- MITSUBISHI --</option>
-                                <option value="">-- HONDA --</option>
-                                <option value="">-- HYUNDAI --</option>
-                                <option value="">-- MERCEDES-BENZ --</option>
-                                <option value="">-- NISSAN --</option>
-                                <option value="">-- OPEL --</option>
-                                <option value="">-- PEUGEOT --</option>
-                                <option value="">-- PORSCHE --</option>
-                                <option value="">-- RENAULT --</option>
-                                <option value="">-- SKODA --</option>
-                                <option value="">-- SUZUKI --</option>
-                                <option value="">-- TATA --</option>
-                                <option value="">-- TOYOTA --</option>
-                                <option value="">-- VOLKSWAGEN --</option>
-                                <option value="">-- VOLVO --</option>
+                                @foreach (var x in Model.Value2)
+                                {
+                                    <option value="">-- @x.BrandName --</option>
+
+                                }
                             </select>
                         </div>
                     </div>

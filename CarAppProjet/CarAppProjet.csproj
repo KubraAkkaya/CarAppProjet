@@ -135,6 +135,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\About.cs" />
+    <Compile Include="Models\Classes\Brand.cs" />
+    <Compile Include="Models\Classes\CarBrandModel.cs" />
     <Compile Include="Models\Classes\CarOwner.cs" />
     <Compile Include="Models\Classes\Context.cs" />
     <Compile Include="Models\Classes\IAdvertise.cs" />

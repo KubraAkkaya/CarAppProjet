@@ -11,7 +11,6 @@ namespace CarAppProjet.Models.Classes
         [Key]
         public int ID { get; set; }
         public string Model { get; set; }
-        public string Brand { get; set; }
         public int Year { get; set; }
         public int Mileage { get; set; }
         public string Engine { get; set; }
@@ -33,6 +32,7 @@ namespace CarAppProjet.Models.Classes
         public bool GlassCeiling { get; set; } //cam tavan
         
         public ICollection<Comment> Comments { get; set; }
-    
+        public Brand BrandId { get; set; }
+
     }
 }
