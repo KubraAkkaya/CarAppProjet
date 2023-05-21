@@ -134,10 +134,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\City.cs" />
     <Compile Include="Models\Classes\About.cs" />
     <Compile Include="Models\Classes\Brand.cs" />
     <Compile Include="Models\Classes\CarBrandModel.cs" />
     <Compile Include="Models\Classes\CarOwner.cs" />
+    <Compile Include="Models\Classes\CarType.cs" />
     <Compile Include="Models\Classes\Context.cs" />
     <Compile Include="Models\Classes\IAdvertise.cs" />
     <Compile Include="Models\Classes\Car.cs" />
@@ -149,6 +151,7 @@
     <Compile Include="Models\Classes\IUser.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\Model.cs" />
+    <Compile Include="Models\Color.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -235,9 +238,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="website\assets\fonts\Flaticon.woff" />
     <Content Include="website\assets\fonts\flexslider-icon.eot" />
     <Content Include="website\assets\fonts\flexslider-icon.ttf" />
@@ -254,6 +254,7 @@
     <Content Include="Views\About\AboutIndex.cshtml" />
     <Content Include="Views\Car\CarIndex.cshtml" />
     <Content Include="Views\Car\CarDetail.cshtml" />
+    <Content Include="Views\Home\HomeIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

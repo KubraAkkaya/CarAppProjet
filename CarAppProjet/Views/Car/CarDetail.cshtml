@@ -1,8 +1,237 @@
-﻿
+﻿@model CarAppProjet.Models.Classes.CarBrandModel
 @{
     ViewBag.Title = "CarDetail";
     Layout = "~/Views/Shared/_TestLayout.cshtml";
 }
 
-<h2>CarDetail</h2>
+<!-- ***** Call to Action Start ***** -->
+<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="cta-content">
+                    <br>
+                    <br>
+                    @foreach (var item in Model.ValueCar)
+                    {
+                        <h2><em>@item.Price TL</em></h2>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Call to Action End ***** -->
+<!-- ***** Fleet Starts ***** -->
+@foreach (var x in Model.ValueCar)
+{
+    <br />
+    <section class="section" id="trainers">
 
+        <div class="container">
+            <br>
+            <br>
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="@x.PhotoCarURL" alt="First slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+            </div>
+
+            <br>
+            <br>
+
+            <div class="row" id="tabs">
+                <div class="col-lg-4">
+                    <ul>
+                        <li><a href='#tabs-1'><i class="fa fa-cog"></i> Araç Özellikleri</a></li>
+                        <li><a href='#tabs-2'><i class="fa fa-info-circle"></i> Araç Açıklaması</a></li>
+                        <li><a href='#tabs-3'><i class="fa fa-plus-circle"></i> Araç Exstralrı</a></li>
+                        <li><a href='#tabs-4'><i class="fa fa-phone"></i> İletişim Detaları</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-8">
+
+                    <section class='tabs-content' style="width: 100%;">
+                        <article id='tabs-1'>
+                            <h4>Araç Özellikleri</h4>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Marka</label>
+                                    @foreach (var z in Model.ValueBrand)
+                                    {
+                                        <p>@z.BrandName</p>
+
+                                    }
+                                </div>
+
+                                @*<div class="col-sm-6">
+                                        <label>Açıklama</label>
+
+                                        <p>@x.Description</p>
+                                    </div>*@
+
+                                <div class="col-sm-6">
+                                    <label> Model</label>
+                                    @foreach (var y in Model.ValueModel)
+                                    {
+                                        <p>@y.ModelName</p>
+
+                                    }
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>Yıl</label>
+
+                                    <p>@x.Year</p>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>Kilometre</label>
+
+                                    <p>@x.Mileage km</p>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>Yakıt Türü</label>
+
+                                    <p>@x.FuelType</p>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>Motor</label>
+
+                                    <p>@x.Engine</p>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>Araba Tipi</label>
+                                    @foreach (var t in Model.ValueCarType)
+                                    {
+                                        <p>@t.Name</p>
+
+                                    }
+                                </div>
+
+
+                                <div class="col-sm-6">
+                                    <label>Vites Türü</label>
+
+                                    <p>@x.GearType</p>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>Kapı Sayısı</label>
+
+                                    <p>@x.Doors</p>
+                                </div>
+
+                                @*<div class="col-sm-6">
+                                        <label>Doors</label>
+
+                                        <p>2/3</p>
+                                    </div>*@
+
+                                <div class="col-sm-6">
+                                    <label>Renk</label>
+
+                                    <p>@x.ColorId.Name</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article id='tabs-2'>
+                            <h4>Araç Açıklaması</h4>
+
+                            <p>@x.Description</p>
+                        </article>
+                        <article id='tabs-3'>
+                            <h4>Araç Exstralrı</h4>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h6>Sis Farı:</h6>
+                                    @if (@x.FogLights == true)
+                                    {<p> Var </p>}
+                                    else
+                                    { <p> Yok </p>}
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <h6>Katlanabilir Ayna:</h6>
+                                    @if (@x.FoldableMirror == true)
+                                    {<p> Var </p>}
+                                    else
+                                    { <p> Yok </p>}
+                                </div>
+                                <div class="col-sm-6">
+                                    <h6>Park Sensörü:</h6>
+                                    @if (@x.ParkingSensor == true)
+                                    {<p> Var </p>}
+                                    else
+                                    { <p> Yok </p>}
+                                </div>
+                                <div class="col-sm-6">
+                                    <h6>Merkezi Kilit:</h6>
+                                    @if (@x.CentralLocking == true)
+                                    {<p> Var </p>}
+                                    else
+                                    { <p> Yok </p>}
+                                </div>
+                                <div class="col-sm-6">
+                                    <h6>Cam Tavan:</h6>
+                                    @if (@x.GlassCeiling == true)
+                                    {<p> Var </p>}
+                                    else
+                                    { <p> Yok </p>}
+                                </div>
+                            </div>
+                        </article>
+                        <article id='tabs-4'>
+                            <h4>İletişim Detaları</h4>
+                            @foreach (var s in Model.ValueCarOwner)
+                            {
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Satıcı Adı</label>
+
+                                        <p>@s.FirstName @s.LastName</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>Telefon</label>
+
+                                        <p>@s.Phone </p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>Email</label>
+                                        <p><a href="#">@s.Mail</a></p>
+                                    </div>
+                                </div>
+                            }
+
+                        </article>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    </section>
+}
+<!-- ***** Fleet Ends ***** -->

@@ -4,10 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace CarAppProjet.Models.Classes
+namespace CarAppProjet.Models
 {
-    public class Customer : IUser
+    public class Color
     {
+        [Key]
+        public int Id { get; set; }
+        public string Name { get; set; }   
 
     }
 }

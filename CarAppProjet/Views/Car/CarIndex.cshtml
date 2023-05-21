@@ -43,14 +43,13 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group">
                             <label>Araç Türü:</label>
+                            @foreach (var z in Model.ValueCarType)
+                            {
 
-                            <select>
-                                <option value="">-- OTOMOBİL --</option>
-                                <option value="">-- MİNİBÜS --</option>
-                                <option value="">-- OTOBÜS --</option>
-                                <option value="">-- KAMYONET --</option>
-                                <option value="">-- KAMYON --</option>
-                            </select>
+                                <select>
+                                    <option value="">-- @z.Name --</option>
+                                </select>
+                            }
                         </div>
                     </div>
 
@@ -59,7 +58,7 @@
                             <label>Marka:</label>
 
                             <select>
-                                @foreach (var x in Model.Value2)
+                                @foreach (var x in Model.ValueBrand)
                                 {
                                     <option value="">-- @x.BrandName --</option>
 
@@ -73,7 +72,7 @@
                             <label>Model:</label>
 
                             <select>
-                                @foreach (var y in Model.Value3)
+                                @foreach (var y in Model.ValueModel)
                                 {
                                     <option value="">-- @y.ModelName --</option>
 
@@ -200,10 +199,11 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4">
-                <div class="trainer-item">
-                    @foreach (var c in Model.Value1)
-                    {
+            @foreach (var c in Model.ValueCar)
+            {
+                <div class="col-lg-4">
+                    <div class="trainer-item">
+
                         <div class="image-thumb">
                             <img src="@c.PhotoCarURL" alt="foto">
                         </div>
@@ -224,10 +224,12 @@
                                 <li><a href="/Car/CarDetail/@c.ID">+ Arabayı görüntüle</a></li>
                             </ul>
                         </div>
-                    }
+                    </div>
                 </div>
-            </div>
+            }
+
         </div>
+
 
         <br>
 

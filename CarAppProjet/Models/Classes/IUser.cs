@@ -6,13 +6,15 @@ using System.Web;
 
 namespace CarAppProjet.Models.Classes
 {
-    public interface IUser
+    public abstract class IUser
     {
-        int Id { get; set; }
-        string FirstName { get; set; }
-        string LastName { get; set; }
-        string Mail { get; set; }
-        string Password { get; set; }
+        [Key]
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Phone { get; set; }
+        public string Mail { get; set; }
+        public string Password { get; set; }
 
     }
 }

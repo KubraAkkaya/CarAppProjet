@@ -6,8 +6,10 @@ using System.Web;
 
 namespace CarAppProjet.Models.Classes
 {
-    public class Customer : IUser
+    public class CarType
     {
-
+        [Key]
+        public int Id { get; set; } 
+        public string Name { get; set; }
     }
 }

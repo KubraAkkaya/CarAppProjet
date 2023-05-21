@@ -8,7 +8,7 @@ namespace CarAppProjet.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult HomeIndex()
         {
             return View();
         }

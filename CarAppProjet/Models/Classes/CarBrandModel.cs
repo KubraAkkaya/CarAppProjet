@@ -7,9 +7,14 @@ namespace CarAppProjet.Models.Classes
 {
     public class CarBrandModel
     {
-        public IEnumerable<Car> Value1 { get; set; }
-        public IEnumerable<Brand> Value2 { get; set; }
-        public IEnumerable<Model> Value3 { get; set; }
+        public IEnumerable<Car> ValueCar { get; set; }
+        public IEnumerable<Brand> ValueBrand { get; set; }
+        public IEnumerable<Model> ValueModel { get; set; }
+        public IEnumerable<CarOwner> ValueCarOwner { get; set; }
+        public IEnumerable<CarType> ValueCarType { get; set; }
+        public IEnumerable<Color> ValueColor { get; set; }
+        public IEnumerable<City> ValueCity { get; set; }
+        public IEnumerable<IUser> ValueUser { get; set; }
 
     }
 }
