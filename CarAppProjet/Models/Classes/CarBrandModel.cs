@@ -9,7 +9,7 @@ namespace CarAppProjet.Models.Classes
     {
         public IEnumerable<Car> Value1 { get; set; }
         public IEnumerable<Brand> Value2 { get; set; }
-        public IEnumerable<Comment> Value3 { get; set; }
+        public IEnumerable<Model> Value3 { get; set; }
 
     }
 }

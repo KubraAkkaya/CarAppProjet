@@ -16,5 +16,6 @@ namespace CarAppProjet.Models.Classes
         public DbSet<About> Abouts { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<Model> Models { get; set; }
     }
 }

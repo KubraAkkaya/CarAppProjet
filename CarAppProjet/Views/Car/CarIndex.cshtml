@@ -56,7 +56,7 @@
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group">
-                            <label>Brand:</label>
+                            <label>Marka:</label>
 
                             <select>
                                 @foreach (var x in Model.Value2)
@@ -73,10 +73,11 @@
                             <label>Model:</label>
 
                             <select>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
+                                @foreach (var y in Model.Value3)
+                                {
+                                    <option value="">-- @y.ModelName --</option>
+
+                                }
                             </select>
                         </div>
                     </div>
@@ -86,10 +87,12 @@
                             <label>Fiyat:</label>
 
                             <select>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
+                                <option value="">-- 0-50.000 --</option>
+                                <option value="">-- 50.000-100.000  --</option>
+                                <option value="">-- 100.000-300.000 --</option>
+                                <option value="">-- 300.000-500.000 --</option>
+                                <option value="">-- 500.000-800.000 --</option>
+                                <option value="">-- 800.000 ve üstü --</option>
                             </select>
                         </div>
                     </div>
@@ -99,10 +102,10 @@
                             <label>Kilometre:</label>
 
                             <select>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
+                                <option value="">-- 50.000-100.000  --</option>
+                                <option value="">-- 100.000-300.000 --</option>
+                                <option value="">-- 300.000-500.000 --</option>
+                                <option value="">-- 500.000-800.000 --</option>
                             </select>
                         </div>
                     </div>
@@ -199,26 +202,29 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src="~/website/assets/images/product-1-720x480.jpg" alt="">
-                    </div>
-                    <div class="down-content">
-                        <span>
-                            <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                        </span>
+                    @foreach (var c in Model.Value1)
+                    {
+                        <div class="image-thumb">
+                            <img src="@c.PhotoCarURL" alt="foto">
+                        </div>
+                        <div class="down-content">
+                            <span>
+                                <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
+                            </span>
 
-                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                            <h4>@c.Description</h4>
 
-                        <p>
-                            <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                        </p>
+                            <p>
+                                <i class="fa fa-dashboard"></i> @c.Mileage &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-cube"></i> @c.Engine &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-cog"></i> @c.GearType &nbsp;&nbsp;&nbsp;
+                            </p>
 
-                        <ul class="social-icons">
-                            <li><a href="~/website/car-details.html">+ View Car</a></li>
-                        </ul>
-                    </div>
+                            <ul class="social-icons">
+                                <li><a href="/Car/CarDetail/@c.ID">+ Arabayı görüntüle</a></li>
+                            </ul>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

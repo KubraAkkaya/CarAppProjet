@@ -15,7 +15,17 @@ namespace CarAppProjet.Controllers
 
         public ActionResult CarIndex()
         {
+            cbm.Value1 = c.Cars.ToList();
             cbm.Value2 = c.Brands.ToList();
+            cbm.Value3 = c.Models.ToList();
+            return View(cbm);
+        }
+
+        public ActionResult CarDetail(int id)
+        {
+
+            cbm.Value2 = c.Brands.ToList();
+            cbm.Value3 = c.Models.ToList();
             return View(cbm);
         }
     }
