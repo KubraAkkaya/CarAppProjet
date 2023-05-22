@@ -262,6 +262,7 @@
     <Content Include="Views\Car\CarDetail.cshtml" />
     <Content Include="Views\Home\HomeIndex.cshtml" />
     <Content Include="Views\Contact\ContactIndex.cshtml" />
+    <Content Include="Views\About\AboutDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

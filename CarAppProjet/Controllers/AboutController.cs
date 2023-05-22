@@ -11,10 +11,16 @@ namespace CarAppProjet.Controllers
     {
         // GET: About
         Context c = new Context();
+        CarBrandModel cbm = new CarBrandModel();
         public ActionResult AboutIndex()
         {
             var degerler = c.Abouts.ToList();
             return View(degerler);
+        }
+        public ActionResult AboutDetail(int id)
+        {
+            var d = c.Abouts.Where(a => a.ID == id).ToList();
+            return View(d);
         }
     }
 }

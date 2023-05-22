@@ -16,9 +16,9 @@ namespace CarAppProjet.Controllers
 
         public ActionResult CarIndex()
         {
-            cbm.ValueCar = c.Cars.ToList();
-            cbm.ValueBrand = c.Brands.ToList();
-            var car = cbm.ValueBrand.FirstOrDefault();
+            cbm.ValueCar = c.Cars.Include(i=>i.Brand).Include(i=>i.Model).ToList();
+            //cbm.ValueBrand = c.Brands.ToList();
+            var car = cbm.ValueBrand.FirstOrDefault(); //seçildiğinde
 
             if (car != null)
             {

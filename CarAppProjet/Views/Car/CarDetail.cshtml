@@ -5,16 +5,15 @@
 }
 
 <!-- ***** Call to Action Start ***** -->
-<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+<section class="section section-bg" id="call-to-action" style="background-image: url(~/website/assets/images/banner-image-1-1920x500.jpg); height:100px">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="cta-content">
-                    <br>
-                    <br>
                     @foreach (var item in Model.ValueCar)
                     {
-                        <h2><em>@item.Price TL</em></h2>
+                        <h2><em>@item.Brand.BrandName @item.Model.ModelName</em> </h2>
+                        <h2>@item.Price TL  </h2>
                     }
                 </div>
             </div>
@@ -25,7 +24,6 @@
 <!-- ***** Fleet Starts ***** -->
 @foreach (var x in Model.ValueCar)
 {
-    <br />
     <section class="section" id="trainers">
 
         <div class="container">

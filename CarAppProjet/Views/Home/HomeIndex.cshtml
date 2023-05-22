@@ -15,9 +15,9 @@
         <div class="caption">
             <h6>AkkayaGrup Sunar</h6>
             <h2>En iyi <em>araba satış</em> sitesi!</h2>
-            <div class="main-button">
+            @*<div class="main-button">
                 <a href="contact.html">İletişime Geçin</a>
-            </div>
+            </div>*@
         </div>
     </div>
 </div>
@@ -28,37 +28,43 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
-                    <h2>Özel <em>Arabalar</em></h2>
+                    <h2> <em>Arabalar</em></h2>
                     <img src="~/website/assets/images/line-dec.png" alt="">
-                    <p>Satışa çıkarılan arabalar burada gösterilmiştir. Daha fazlası için altta bulunan <em>DAHA FAZLA ARABA GÖSTER</em> butonuna tıklayabilirsiniz.</p>
+                    <p>Satışa çıkarılan arabalar burada gösterilmiştir. Daha fazlası için arabaların altında bulunan <em>"ARABAYI GÖRÜNTÜLE"</em> ya da en altta bulunan <em>"DAHA FAZLA ARABA GÖSTER"</em> butonuna tıklayabilirsiniz.</p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src="~/website/assets/images/product-1-720x480.jpg" alt="">
-                    </div>
-                    <div class="down-content">
-                        <span>
-                            <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                        </span>
+            @foreach (var c in Model.ValueCar)
+            {
+                <div class="col-lg-4">
+                    <div class="trainer-item">
 
-                        <h4>araba açılklası</h4>
+                        <div class="image-thumb">
+                            <img src="@c.PhotoCarURL" alt="foto" height="200px" width="%100">
+                        </div>
+                        <div class="down-content">
+                            <span>
+                                <h4 style="font-size:x-large"> @c.Brand.BrandName  @c.Model.ModelName</h4>
+                            </span>
 
-                        <p>
-                            <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                        </p>
+                            <h6>@c.Description.Substring(0, 10)</h6>
+                            <br />
+                            <p>
+                                <i class="fa fa-dashboard"></i> @c.Mileage &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-location-arrow"></i> @c.City.Name &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-calendar"></i> @c.Year &nbsp;&nbsp;&nbsp;
+                                <br />
+                                <h5 style="color:orangered "><em><i class="fa fa-tag "></i>@c.Price TL</em></h5>  &nbsp;
+                            </p>
 
-                        <ul class="social-icons">
-                            <li><a href="/Car/CarDetail">+ Arabayı Görüntüle</a></li>
-                        </ul>
+                            <ul class="social-icons">
+                                <li><a href="/Car/CarDetail/@c.ID" style="color:indigo">+ Arabayı görüntüle</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
 
         <br>
@@ -70,23 +76,27 @@
 </section>
 <!-- ***** Cars Ends ***** -->
 
-<section class="section section-bg" id="schedule" style="background-image: url(assets/images/about-fullscreen-1-1920x700.jpg)">
+<section class="section section-bg" id="schedule" style="background-image: url(assets/images/about-fullscreen-1-1920x700.jpg); height:500px">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading dark-bg">
                     <h2> <em>Hakkımızda</em> Oku</h2>
                     <img src="~/website/assets/images/line-dec.png" alt="">
-                    <p>hakkıımız.</p>
+                    @foreach (var y in Model.ValueAbout)
+                    {
+                        <div class="col-lg-12">
+                            <div class="cta-content text-center">
+                                <a href="/About/AboutIndex"><p>@y.Description.Substring(0, 150)...</p></a>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12">
-                <div class="cta-content text-center">
-                    <p>bişi</p>
-                </div>
-            </div>
+
+
         </div>
     </div>
 </section>
@@ -101,60 +111,33 @@
                 <div class="section-heading">
                     <h2>Ziyaretçilerin <em>Görüşlerini</em> Okuyunuz</h2>
                     <img src="~/website/assets/images/line-dec.png" alt="waves">
-                    <p>bişi?</p>
+                    <p>Yorumların üstlerine tıklayarak ilgili ilan sayfasına gidebilirsiniz.</p>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <ul class="features-items">
-                    <li class="feature-item">
-                        <div class="left-icon">
-                            <img src="~/website/assets/images/features-first-icon.png" alt="First One">
-                        </div>
-                        <div class="right-content">
-                            <h4>John Doe</h4>
-                            <p><em>"bişi!"</em></p>
-                        </div>
-                    </li>
-                    <li class="feature-item">
-                        <div class="left-icon">
-                            <img src="~/website/assets/images/features-first-icon.png" alt="second one">
-                        </div>
-                        <div class="right-content">
-                            <h4>John Doe</h4>
-                            <p><em>"eniti id et!"</em></p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-6">
-                <ul class="features-items">
-                    <li class="feature-item">
-                        <div class="left-icon">
-                            <img src="~/website/assets/images/features-first-icon.png" alt="fourth muscle">
-                        </div>
-                        <div class="right-content">
-                            <h4>John Doe</h4>
-                            <p><em>"bişi!"</em></p>
-                        </div>
-                    </li>
-                    <li class="feature-item">
-                        <div class="left-icon">
-                            <img src="~/website/assets/images/features-first-icon.png" alt="training fifth">
-                        </div>
-                        <div class="right-content">
-                            <h4>John Doe</h4>
-                            <p><em>"bişi!"</em></p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            @foreach (var z in Model.ValueComment)
+            {
+                <div class="col-lg-6">
+                    <ul class="features-items">
+                        <li class="feature-item">
+                            <div class="left-icon">
+                                <img src="~/website/assets/images/features-first-icon.png" alt="user foto">
+                            </div>
+                            <div class="right-content">
+                                <h4>@z.UserName</h4>
+                                <a href="/Car/CarDetail/@z.CarId"><p><em>@z.WriteComment</em></p></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            }
+
         </div>
 
         <br>
 
-        <div class="main-button text-center">
+        @*<div class="main-button text-center">
             <a href="~/website/testimonials.html">Daha fazla oku</a>
-        </div>
+        </div>*@
     </div>
 </section>
 <!-- ***** Testimonials Item End ***** -->
@@ -165,9 +148,9 @@
             <div class="col-lg-10 offset-lg-1">
                 <div class="cta-content">
                     <h2>Bize <em>Mesaj</em> Gönder</h2>
-                    <p>bişi</p>
+                    <p>Değerli düşünce ve görüşlerinizi bizimle paylaşmak için lütfen bizimle iletişime geçiniz.</p>
                     <div class="main-button">
-                        <a href="~/website/contact.html">Bizimle İletişime Geç</a>
+                        <a href="/Contact/ContactIndex">Bizimle İletişime Geç</a>
                     </div>
                 </div>
             </div>

@@ -4,15 +4,15 @@
     Layout = "~/Views/Shared/_TestLayout.cshtml";
 }
 
-<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+<section class="section section-bg" id="call-to-action" style="background-image: url(~/website/assets/images/banner-image-1-1920x500.jpg); height:300px">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="cta-content">
                     <br>
                     <br>
-                    <h2>Our <em>Cars</em></h2>
-                    <p>bişiler</p>
+                    <h2>Mevcut<em> Arabalar</em></h2>
+                    <p>İsteğinize Göre Arabaları Arayabilirsiniz ya da Sıralayabilirsiniz</p>
                 </div>
             </div>
         </div>
@@ -43,13 +43,13 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group">
                             <label>Araç Türü:</label>
-                            @foreach (var z in Model.ValueCarType)
-                            {
+                            <select>
+                                @foreach (var z in Model.ValueCarType)
+                                {
 
-                                <select>
                                     <option value="">-- @z.Name --</option>
+                                }
                                 </select>
-                            }
                         </div>
                     </div>
 
@@ -115,9 +115,6 @@
 
                             <select>
                                 <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
                             </select>
                         </div>
                     </div>
@@ -127,9 +124,6 @@
                             <label>Power:</label>
 
                             <select>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
                                 <option value="">-- All --</option>
                             </select>
                         </div>
@@ -141,9 +135,6 @@
 
                             <select>
                                 <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
                             </select>
                         </div>
                     </div>
@@ -153,9 +144,6 @@
                             <label>Vites Türü:</label>
 
                             <select>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
                                 <option value="">-- All --</option>
                             </select>
                         </div>
@@ -167,9 +155,6 @@
 
                             <select>
                                 <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
                             </select>
                         </div>
                     </div>
@@ -180,9 +165,6 @@
 
                             <select>
                                 <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
-                                <option value="">-- All --</option>
                             </select>
                         </div>
                     </div>
@@ -190,7 +172,7 @@
 
                 <div class="col-sm-4 offset-sm-4">
                     <div class="main-button text-center">
-                        <a href="#">Search</a>
+                        <a href="#">Ara</a>
                     </div>
                 </div>
                 <br>
@@ -205,23 +187,25 @@
                     <div class="trainer-item">
 
                         <div class="image-thumb">
-                            <img src="@c.PhotoCarURL" alt="foto" >
+                            <img src="@c.PhotoCarURL" alt="foto" height="200px" width="%100">
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
+                                <h4 style="font-size:x-large"> @c.Brand.BrandName  @c.Model.ModelName</h4> 
                             </span>
 
-                            <h4>@c.Description.Substring(0,10)</h4>
-
+                            <h6>@c.Description.Substring(0,10)</h6>
+                            <br />
                             <p>
                                 <i class="fa fa-dashboard"></i> @c.Mileage &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> @c.Engine &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cog"></i> @c.GearType &nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-location-arrow"></i> @c.City.Name &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-calendar"></i> @c.Year &nbsp;&nbsp;&nbsp;
+                                <br />
+                                <h5 style="color:orangered "><em><i class="fa fa-tag "></i>@c.Price TL</em></h5>  &nbsp;
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="/Car/CarDetail/@c.ID">+ Arabayı görüntüle</a></li>
+                                <li><a href="/Car/CarDetail/@c.ID" style="color:indigo">+ Arabayı görüntüle</a></li>
                             </ul>
                         </div>
                     </div>
