@@ -18,20 +18,26 @@ namespace CarAppProjet.Models.Classes
         public string GearType { get; set; }
         public string Description { get; set; }
         public string PhotoCarURL { get; set; }
-
         public int Doors { get; set; }
         public bool FogLights { get; set; } //sis farı
         public bool FoldableMirror { get; set; } //katlanabilir ayna
         public bool ParkingSensor { get; set; } 
         public bool CentralLocking { get; set; } //merkezi kilit
         public bool GlassCeiling { get; set; } //cam tavan
-        
+        public int BrandId { get; set; }
+        public int ModelId { get; set; }
+        public int CityId { get; set; }
+        public int ColorId { get; set; }
+        public int CarTypeId { get; set; }
+        public int CarOwnerId { get; set; }
+
+
         public ICollection<Comment> Comments { get; set; }
-        public CarOwner CarOwnerId { get; set; }
-        public Brand BrandId { get; set; }
-        public Model ModelId { get; set; }
-        public City CityId{ get; set; }
-        public Color ColorId { get; set; }
-        public CarType CarTypeId { get; set; }
+        public virtual Model Model { get; set; }
+        public virtual Brand Brand { get; set; }
+        public virtual City City{ get; set; }
+        public  virtual Color Color { get; set; }
+        public  virtual CarType CarType { get; set; }
+        public  virtual CarOwner CarOwner { get; set; }
     }
 }

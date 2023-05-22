@@ -76,11 +76,11 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label>Marka</label>
-                                    @foreach (var z in Model.ValueBrand)
-                                    {
-                                        <p>@z.BrandName</p>
+                                    @*@foreach (var z in Model.ValueBrand)
+                                    {*@
+                                        <p>@x.Brand.BrandName</p>
 
-                                    }
+                                    @*}*@
                                 </div>
 
                                 @*<div class="col-sm-6">
@@ -91,11 +91,11 @@
 
                                 <div class="col-sm-6">
                                     <label> Model</label>
-                                    @foreach (var y in Model.ValueModel)
-                                    {
-                                        <p>@y.ModelName</p>
+                                    @*@foreach (var y in Model.ValueModel)
+                                    {*@
+                                        <p>@x.Model.ModelName</p>
 
-                                    }
+                                    @*}*@
                                 </div>
 
                                 <div class="col-sm-6">
@@ -124,11 +124,11 @@
 
                                 <div class="col-sm-6">
                                     <label>Araba Tipi</label>
-                                    @foreach (var t in Model.ValueCarType)
-                                    {
-                                        <p>@t.Name</p>
+                                    @*@foreach (var t in Model.ValueCarType)
+                                    {*@
+                                        <p>@x.CarType.Name</p>
 
-                                    }
+                                    @*}*@
                                 </div>
 
 
@@ -153,7 +153,7 @@
                                 <div class="col-sm-6">
                                     <label>Renk</label>
 
-                                    <p>@x.ColorId.Name</p>
+                                    <p>@x.Color.Name</p>
                                 </div>
                             </div>
                         </article>
@@ -206,25 +206,25 @@
                         </article>
                         <article id='tabs-4'>
                             <h4>İletişim Detaları</h4>
-                            @foreach (var s in Model.ValueCarOwner)
-                            {
+                            @*@foreach (var s in Model.ValueCarOwner)
+                            {*@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label>Satıcı Adı</label>
 
-                                        <p>@s.FirstName @s.LastName</p>
+                                        <p>@x.CarOwner.FirstName @x.CarOwner.LastName</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <label>Telefon</label>
 
-                                        <p>@s.Phone </p>
+                                        <p>@x.CarOwner.Phone </p>
                                     </div>
                                     <div class="col-sm-6">
                                         <label>Email</label>
-                                        <p><a href="#">@s.Mail</a></p>
+                                        <p><a href="#">@x.CarOwner.Mail</a></p>
                                     </div>
                                 </div>
-                            }
+                            @*}*@
 
                         </article>
                     </section>

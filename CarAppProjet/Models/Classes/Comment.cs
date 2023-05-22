@@ -14,6 +14,7 @@ namespace CarAppProjet.Models.Classes
         public string UserName { get; set; }
         public string Mail { get; set; }
         public string WriteComment { get; set; }
-        public Car Car { get; set; }
+        public int CarId { get; set; }
+        public virtual Car Car { get; set; }
     }
 }

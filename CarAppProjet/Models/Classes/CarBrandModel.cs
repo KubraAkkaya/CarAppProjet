@@ -15,6 +15,7 @@ namespace CarAppProjet.Models.Classes
         public IEnumerable<Color> ValueColor { get; set; }
         public IEnumerable<City> ValueCity { get; set; }
         public IEnumerable<IUser> ValueUser { get; set; }
+        public IEnumerable<Comment> ValueComment { get; set; }
 
     }
 }
