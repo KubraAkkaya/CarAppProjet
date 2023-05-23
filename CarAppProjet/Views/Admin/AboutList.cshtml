@@ -1,0 +1,34 @@
+﻿@using CarAppProjet.Models.Classes
+@model List<About>
+@{
+    ViewBag.Title = "AboutList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hakkımızda</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th> ID </th>
+        <th> BAŞLIK </th>
+        <th> İÇERİK </th>
+        <th> SİL </th>
+        <th> DÜZENLE </th>
+        <th> DETAYLAR </th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td> @x.ID </td>
+            <td> @x.Title </td>
+            <td> @x.Description </td>
+            <td> <a href="/Admin/DeleteAbout/@x.ID" class="btn btn-danger">Sil</a></td>
+            <td> <a href="/Admin/GetAbout/@x.ID" class="btn btn-warning">Düzenle</a></td>
+            <td> <a href="/About/AboutDetail/@x.ID" class="btn btn-primary">Detaylar</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Admin/NewAbout" class="btn btn-info" style="font-size:large">ABOUT EKLE</a>
+<br />
+<br />

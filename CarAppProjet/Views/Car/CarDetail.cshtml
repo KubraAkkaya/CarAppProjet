@@ -63,6 +63,7 @@
                         <li><a href='#tabs-2'><i class="fa fa-info-circle"></i> Araç Açıklaması</a></li>
                         <li><a href='#tabs-3'><i class="fa fa-plus-circle"></i> Araç Exstralrı</a></li>
                         <li><a href='#tabs-4'><i class="fa fa-phone"></i> İletişim Detaları</a></li>
+                        <li><a href='#tabs-5'><i class="fa fa-comment"></i> Yorumlar</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-8">
@@ -74,26 +75,15 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label>Marka</label>
-                                    @*@foreach (var z in Model.ValueBrand)
-                                    {*@
-                                        <p>@x.Brand.BrandName</p>
+                                    <p>@x.Brand.BrandName</p>
 
-                                    @*}*@
                                 </div>
 
-                                @*<div class="col-sm-6">
-                                        <label>Açıklama</label>
-
-                                        <p>@x.Description</p>
-                                    </div>*@
 
                                 <div class="col-sm-6">
                                     <label> Model</label>
-                                    @*@foreach (var y in Model.ValueModel)
-                                    {*@
-                                        <p>@x.Model.ModelName</p>
+                                    <p>@x.Model.ModelName</p>
 
-                                    @*}*@
                                 </div>
 
                                 <div class="col-sm-6">
@@ -122,11 +112,8 @@
 
                                 <div class="col-sm-6">
                                     <label>Araba Tipi</label>
-                                    @*@foreach (var t in Model.ValueCarType)
-                                    {*@
-                                        <p>@x.CarType.Name</p>
+                                    <p>@x.CarType.Name</p>
 
-                                    @*}*@
                                 </div>
 
 
@@ -141,12 +128,6 @@
 
                                     <p>@x.Doors</p>
                                 </div>
-
-                                @*<div class="col-sm-6">
-                                        <label>Doors</label>
-
-                                        <p>2/3</p>
-                                    </div>*@
 
                                 <div class="col-sm-6">
                                     <label>Renk</label>
@@ -204,26 +185,39 @@
                         </article>
                         <article id='tabs-4'>
                             <h4>İletişim Detaları</h4>
-                            @*@foreach (var s in Model.ValueCarOwner)
-                            {*@
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <label>Satıcı Adı</label>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Satıcı Adı</label>
 
-                                        <p>@x.CarOwner.FirstName @x.CarOwner.LastName</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label>Telefon</label>
-
-                                        <p>@x.CarOwner.Phone </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label>Email</label>
-                                        <p><a href="#">@x.CarOwner.Mail</a></p>
-                                    </div>
+                                    <p>@x.CarOwner.FirstName @x.CarOwner.LastName</p>
                                 </div>
-                            @*}*@
+                                <div class="col-sm-6">
+                                    <label>Telefon</label>
 
+                                    <p>@x.CarOwner.Phone </p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Email</label>
+                                    <p><a href="#">@x.CarOwner.Mail</a></p>
+                                </div>
+                            </div>
+                        </article>
+                        <article id='tabs-5'>
+                            <h4>Yorumlar</h4>
+                            <div class="row">
+                                @foreach (var cm in Model.ValueComment)
+                                {
+                                    <div class="container justify-content-center mt-5 border-left border-right">
+                                        <div class="second py-2 px-2">
+                                            <img src="~/website/assets/images/features-first-icon.png" width="30"> &nbsp;@cm.UserName -- @cm.Mail
+                                            <div class="d-flex justify-content-between py-1 pt-2">
+                                                <span class="text1">@cm.WriteComment</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            @Html.Action("ToComment", "Car")
                         </article>
                     </section>
                 </div>

@@ -78,5 +78,19 @@ namespace CarAppProjet.Controllers
 
             return View(cbm);
         }
+
+        [HttpGet]
+        public PartialViewResult ToComment(int id)
+        {
+            ViewBag.value = id;
+            return PartialView();
+        }
+        [HttpPost]
+        public PartialViewResult ToComment(Comment co)
+        {
+            c.Comments.Add(co);
+            c.SaveChanges();
+            return PartialView();
+        }
     }
 }

@@ -1,0 +1,72 @@
+﻿@model CarAppProjet.Models.Classes.Car
+@{
+    ViewBag.Title = "GetCar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Araba Düzenle</h2>
+<br />
+@using (Html.BeginForm("UpdateCar", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.Brand.BrandName)
+    @Html.TextBoxFor(x => x.Brand.BrandName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Model.ModelName)
+    @Html.TextBoxFor(x => x.Model.ModelName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Year)
+    @Html.TextBoxFor(x => x.Year, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.City.Name)
+    @Html.TextBoxFor(x => x.City.Name, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Price)
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CarType.Name)
+    @Html.TextBoxFor(x => x.CarType.Name, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Color.Name)
+    @Html.TextBoxFor(x => x.Color.Name, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Engine)
+    @Html.TextBoxFor(x => x.Engine, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Price)
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.FuelType)
+    @Html.TextBoxFor(x => x.FuelType, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.GearType)
+    @Html.TextBoxFor(x => x.GearType, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Doors)
+    @Html.TextBoxFor(x => x.Doors, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.FoldableMirror)
+    @Html.TextBoxFor(x => x.FoldableMirror, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CentralLocking)
+    @Html.TextBoxFor(x => x.CentralLocking, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.GlassCeiling)
+    @Html.TextBoxFor(x => x.GlassCeiling, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ParkingSensor)
+    @Html.TextBoxFor(x => x.ParkingSensor, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.PhotoCarURL)
+    @Html.TextBoxFor(x => x.PhotoCarURL, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Description)
+    @Html.TextAreaFor(x => x.Description, 15, 1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary" style="font-size:large">Güncelle</button>
+    <br />
+    <br />
+
+}
