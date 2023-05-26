@@ -51,7 +51,7 @@ namespace CarAppProjet.Controllers
         public ActionResult UpdateCar(Car c)
         {
             var findedCar3 = ca.Cars.Find(c.ID);
-            findedCar3.BrandId = c.BrandId;
+            findedCar3.BrandID = c.BrandID;
             findedCar3.ModelId = c.ModelId;
             findedCar3.PhotoCarURL = c.PhotoCarURL;
             findedCar3.Year = c.Year;

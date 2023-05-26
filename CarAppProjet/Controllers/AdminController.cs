@@ -16,7 +16,7 @@ namespace CarAppProjet.Controllers
         [Authorize]
         public ActionResult AdminIndex()
         {
-            cbm.ValueCar = ca.Cars.ToList();
+            cbm.ValueCar = ca.Cars.Where(x=>x.Approve==true).ToList();
             return View(cbm);
         }
 
@@ -29,6 +29,7 @@ namespace CarAppProjet.Controllers
         [HttpPost]
         public ActionResult NewCar(Car c)
         {
+            c.Approve = false;
             ca.Cars.Add(c);
             ca.SaveChanges();
             return RedirectToAction("Index");
@@ -52,8 +53,8 @@ namespace CarAppProjet.Controllers
         public ActionResult UpdateCar(Car c)
         {
             var findedCar3 = ca.Cars.Find(c.ID);
-            findedCar3.BrandId= c.BrandId;
-            findedCar3.ModelId = c.ModelId;
+            findedCar3.Brand.BrandName = c.Brand.BrandName;
+            findedCar3.Model.ModelName = c.Model.ModelName;
             findedCar3.PhotoCarURL = c.PhotoCarURL;
             findedCar3.Year = c.Year;
             findedCar3.CarOwnerId = c.CarOwnerId;
@@ -71,10 +72,47 @@ namespace CarAppProjet.Controllers
             findedCar3.ParkingSensor = c.ParkingSensor;
             findedCar3.CentralLocking = c.CentralLocking;
             findedCar3.FoldableMirror = c.FoldableMirror;
+            findedCar3.Approve = c.Approve;
             ca.SaveChanges();
             return RedirectToAction("Index");
         }
 
+        //Admin (Araba onaylama)
+        public ActionResult ToApprove(Car car)
+        {
+            cbm.ValueCar = ca.Cars.Where(x => x.Approve == false).ToList();
+
+            return View(cbm);
+        }
+
+        [HttpGet]
+        public ActionResult NewToApprove()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult NewToApprove(Car c)
+        {
+            ca.Cars.Add(c);
+            ca.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        // GET: Admin (onay güncelleme)
+        public ActionResult GetApprove(int id)
+        {
+            var findedCar2 = ca.Cars.Find(id);
+            return View("GetApprove", findedCar2);
+        }
+
+        public ActionResult UpdateApprove(Car c)
+        {
+            var find = ca.Cars.Find(c.ID);
+            find.Approve = c.Approve;
+            ca.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
 
 

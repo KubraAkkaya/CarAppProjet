@@ -80,7 +80,7 @@ namespace CarAppProjet.Controllers
         public ActionResult CustomerLogin(Customer ad)
         {
 
-            var info = c.CarOwners.FirstOrDefault(x => x.Mail == ad.Mail && x.Password == ad.Password);
+            var info = c.Customers.FirstOrDefault(x => x.Mail == ad.Mail && x.Password == ad.Password);
             if (info != null)
             {
                 FormsAuthentication.SetAuthCookie(info.Mail, false);

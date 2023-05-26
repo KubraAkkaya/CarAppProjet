@@ -1,0 +1,23 @@
+﻿@model CarAppProjet.Models.Classes.Car
+
+@{
+    ViewBag.Title = "GetApprove";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Araba Onayla</h2>
+<br />
+@using (Html.BeginForm("UpdateCar", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.Approve)
+    <br />
+    @Html.RadioButtonFor(x => x.Approve, true, new { @class = "form-check-input" })
+    <label class="form-check-label">Evet</label>
+    <br />
+    @Html.RadioButtonFor(x => x.Approve, false, new { @class = "form-check-input" })
+    <label class="form-check-label">Hayır</label>
+    <button class="btn btn-primary" style="font-size:large">Güncelle</button>
+    <br />
+    <br />
+
+}

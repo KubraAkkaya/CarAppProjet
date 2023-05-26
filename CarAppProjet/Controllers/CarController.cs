@@ -22,11 +22,11 @@ namespace CarAppProjet.Controllers
 
             if (car != null)
             {
-                var Id = car.Id; // Get the brandId from the car object
+                var Id = car.ID; // Get the brandId from the car object
 
                 var modelsByBrand = c.Models
                     .Include(i => i.Brand)
-                    .Where(m => m.Brand.Id == Id)
+                    .Where(m => m.Brand.ID == Id)
                     .ToList();
 
                 cbm.ValueModel = modelsByBrand;
@@ -59,11 +59,11 @@ namespace CarAppProjet.Controllers
 
             if (car != null)
             {
-                var Id = car.Brand.Id; // Get the brandId from the car object
+                var Id = car.Brand.ID; // Get the brandId from the car object
 
                 var modelsByBrand = c.Models
                     .Include(i => i.Brand)
-                    .Where(m => m.Brand.Id == Id)
+                    .Where(m => m.Brand.ID == Id)
                     .ToList();
 
                 cbm.ValueModel = modelsByBrand;

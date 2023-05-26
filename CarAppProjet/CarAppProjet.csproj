@@ -128,7 +128,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Classes\City.cs" />
     <Compile Include="Models\Classes\About.cs" />
     <Compile Include="Models\Classes\Brand.cs" />
     <Compile Include="Models\Classes\CarBrandModel.cs" />
@@ -145,7 +145,7 @@
     <Compile Include="Models\Classes\IUser.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\Model.cs" />
-    <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\Classes\Color.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -290,6 +290,9 @@
     <Content Include="Views\CarOwner\GetCar.cshtml" />
     <Content Include="Views\Shared\_CarOwnerLayout.cshtml" />
     <Content Include="Views\Login\CustomerLogin.cshtml" />
+    <Content Include="Views\Admin\ToApprove.cshtml" />
+    <Content Include="Views\Admin\NewToApprove.cshtml" />
+    <Content Include="Views\Admin\GetApprove.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
