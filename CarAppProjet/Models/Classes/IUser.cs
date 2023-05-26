@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CarAppProjet.Models.Classes
 {
-    public abstract class IUser
+    public abstract class User
     {
         [Key]
         public int Id { get; set; }

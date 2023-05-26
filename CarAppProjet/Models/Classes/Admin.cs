@@ -6,8 +6,9 @@ using System.Web;
 
 namespace CarAppProjet.Models.Classes
 {
-    public class Admin : IUser
+    public class Admin : User
     {
+        public string AdminName { get; set; }
         public bool Approve { get; set; } //onay
     }
 }

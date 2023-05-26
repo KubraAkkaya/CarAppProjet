@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CarAppProjet.Models.Classes
 {
-    public class CarOwner: IUser
+    public class CarOwner: User
     {
 
     }

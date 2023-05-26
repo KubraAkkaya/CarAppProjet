@@ -17,7 +17,7 @@ namespace CarAppProjet.Controllers
             cbm.ValueCar = c.Cars.ToList().Take(3);
             cbm.ValueBrand = c.Brands.ToList();
             cbm.ValueAbout = c.Abouts.ToList();
-            cbm.ValueComment = c.Comments.ToList();
+            cbm.ValueComment = c.Comments.ToList().Take(6);
             var car = cbm.ValueBrand.FirstOrDefault();
 
             if (car != null)

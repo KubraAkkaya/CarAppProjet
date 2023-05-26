@@ -30,6 +30,7 @@ namespace CarAppProjet.Models.Classes
         public int ColorId { get; set; }
         public int CarTypeId { get; set; }
         public int CarOwnerId { get; set; }
+        public DateTime PublicationDate { get; set; }
 
 
         public ICollection<Comment> Comments { get; set; }

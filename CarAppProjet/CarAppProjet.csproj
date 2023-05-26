@@ -120,8 +120,10 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CarController.cs" />
+    <Compile Include="Controllers\CarOwnerController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,6 +184,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="weblogin\css\style.css" />
+    <Content Include="weblogin\images\b4.jpg" />
+    <Content Include="weblogin\images\manzara.jpg" />
+    <Content Include="weblogin\images\manzara2.jpg" />
     <Content Include="website\about.html" />
     <Content Include="website\assets\css\bootstrap.min.css" />
     <Content Include="website\assets\css\font-awesome.css" />
@@ -274,6 +280,16 @@
     <Content Include="Views\Admin\NewAbout.cshtml" />
     <Content Include="Views\Admin\NewCar.cshtml" />
     <Content Include="Views\Car\ToComment.cshtml" />
+    <Content Include="weblogin\fonts\Asap-Regular.ttf" />
+    <Content Include="weblogin\fonts\Audiowide-Regular.ttf" />
+    <Content Include="Views\Login\LoginIndex.cshtml" />
+    <Content Include="weblogin\images\car.webp" />
+    <Content Include="Views\Login\LoginCarOwner.cshtml" />
+    <Content Include="Views\CarOwner\CarOwnerIndex.cshtml" />
+    <Content Include="Views\CarOwner\NewCar.cshtml" />
+    <Content Include="Views\CarOwner\GetCar.cshtml" />
+    <Content Include="Views\Shared\_CarOwnerLayout.cshtml" />
+    <Content Include="Views\Login\CustomerLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

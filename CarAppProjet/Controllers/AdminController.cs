@@ -12,14 +12,16 @@ namespace CarAppProjet.Controllers
         Context ca= new Context();
         CarBrandModel cbm =new CarBrandModel();
         // GET: Admin
+
+        [Authorize]
         public ActionResult AdminIndex()
         {
             cbm.ValueCar = ca.Cars.ToList();
             return View(cbm);
         }
 
-        // GET: Admin (blog ekleme)
-        //[HttpGet]
+        // GET: Admin (araba ekleme)
+        [HttpGet]
         public ActionResult NewCar()
         {
             return View();
@@ -32,7 +34,7 @@ namespace CarAppProjet.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Admin (blog silme)
+        // GET: Admin (araba silme)
         public ActionResult DeleteCar(int id)
         {
             var findedCar = ca.Cars.Find(id);
@@ -41,7 +43,7 @@ namespace CarAppProjet.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Admin (blog güncelleme)
+        // GET: Admin (araba güncelleme)
         public ActionResult GetCar(int id)
         {
             var findedCar2 = ca.Cars.Find(id);
@@ -109,12 +111,12 @@ namespace CarAppProjet.Controllers
         }
 
         // GET: Admin (about ekleme)
-        //[HttpGet]
+        [HttpGet]
         public ActionResult NewAbout()
         {
             return View();
         }
-        //[HttpPost]
+        [HttpPost]
         public ActionResult NewAbout(About a)
         {
             ca.Abouts.Add(a);
