@@ -15,7 +15,8 @@ namespace CarAppProjet.Controllers
         // GET: CarOwner
         public ActionResult CarOwnerIndex(CarOwner co)
         {
-            cbm.ValueCar = ca.Cars.Where(x=>x.CarOwner.ID==co.ID).ToList();
+            int carOwnerId = (int)Session["CarOwnerId"];
+            cbm.ValueCar = ca.Cars.Where(x=>x.CarOwner.ID== carOwnerId).ToList();
             return View(cbm);
         }
 
