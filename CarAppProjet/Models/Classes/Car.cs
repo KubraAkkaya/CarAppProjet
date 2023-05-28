@@ -24,12 +24,7 @@ namespace CarAppProjet.Models.Classes
         public bool ParkingSensor { get; set; } 
         public bool CentralLocking { get; set; } //merkezi kilit
         public bool GlassCeiling { get; set; } //cam tavan
-        public int BrandID { get; set; }
-        public int ModelId { get; set; }
-        public int CityId { get; set; }
-        public int ColorId { get; set; }
-        public int CarTypeId { get; set; }
-        public int CarOwnerId { get; set; }
+
         public bool Approve { get; set; }
         public DateTime PublicationDate { get; set; }
 

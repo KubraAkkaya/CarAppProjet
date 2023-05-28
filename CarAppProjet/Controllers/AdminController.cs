@@ -57,10 +57,9 @@ namespace CarAppProjet.Controllers
             findedCar3.Model.ModelName = c.Model.ModelName;
             findedCar3.PhotoCarURL = c.PhotoCarURL;
             findedCar3.Year = c.Year;
-            findedCar3.CarOwnerId = c.CarOwnerId;
-            findedCar3.CarTypeId = c.CarTypeId;
-            findedCar3.CityId = c.CityId;
-            findedCar3.ColorId = c.ColorId;
+            findedCar3.CarType.ID = c.CarType.ID;
+            findedCar3.City.Name = c.City.Name;
+            findedCar3.Color.Name = c.Color.Name;
             findedCar3.Description = c.Description;
             findedCar3.Doors = c.Doors;
             findedCar3.Engine = c.Engine;
@@ -74,7 +73,7 @@ namespace CarAppProjet.Controllers
             findedCar3.FoldableMirror = c.FoldableMirror;
             findedCar3.Approve = c.Approve;
             ca.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("AdminIndex");
         }
 
         //Admin (Araba onaylama)
@@ -109,7 +108,27 @@ namespace CarAppProjet.Controllers
         public ActionResult UpdateApprove(Car c)
         {
             var find = ca.Cars.Find(c.ID);
-            find.Approve = c.Approve;
+            var findedCar3 = ca.Cars.Find(c.ID);
+            findedCar3.Brand.BrandName = c.Brand.BrandName;
+            findedCar3.Model.ModelName = c.Model.ModelName;
+            findedCar3.PhotoCarURL = c.PhotoCarURL;
+            findedCar3.Year = c.Year;
+            findedCar3.CarOwner.ID = c.CarOwner.ID;
+            findedCar3.CarType.ID = c.CarType.ID;
+            findedCar3.City.ID = c.City.ID;
+            findedCar3.Color.ID = c.Color.ID;
+            findedCar3.Description = c.Description;
+            findedCar3.Doors = c.Doors;
+            findedCar3.Engine = c.Engine;
+            findedCar3.Mileage = c.Mileage;
+            findedCar3.Price = c.Price;
+            findedCar3.FuelType = c.FuelType;
+            findedCar3.GearType = c.GearType;
+            findedCar3.GlassCeiling = c.GlassCeiling;
+            findedCar3.ParkingSensor = c.ParkingSensor;
+            findedCar3.CentralLocking = c.CentralLocking;
+            findedCar3.FoldableMirror = c.FoldableMirror;
+            findedCar3.Approve = c.Approve;
             ca.SaveChanges();
             return RedirectToAction("Index");
         }

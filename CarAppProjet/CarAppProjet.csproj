@@ -142,7 +142,7 @@
     <Compile Include="Models\Classes\HomePage.cs" />
     <Compile Include="Models\Classes\Comment.cs" />
     <Compile Include="Models\Classes\ISearch.cs" />
-    <Compile Include="Models\Classes\IUser.cs" />
+    <Compile Include="Models\Classes\User.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\Model.cs" />
     <Compile Include="Models\Classes\Color.cs" />

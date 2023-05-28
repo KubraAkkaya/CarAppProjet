@@ -9,7 +9,7 @@ namespace CarAppProjet.Models.Classes
     public class Contact
     {
         [Key]
-        public int Id { get; set; } 
+        public int ID { get; set; } 
         public string Name { get; set; }
         public string Mail { get; set; }
         public string Subject { get; set; }

@@ -9,7 +9,7 @@ namespace CarAppProjet.Models.Classes
     public class Model
     {
         [Key]
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string ModelName { get; set; }
         public int BrandID { get; set; }
         public virtual Brand Brand{ get; set; }

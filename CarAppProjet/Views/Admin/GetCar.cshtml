@@ -17,6 +17,9 @@
     @Html.LabelFor(x => x.Model.ModelName)
     @Html.TextBoxFor(x => x.Model.ModelName, new { @class = "form-control" })
     <br />
+    @Html.LabelFor(x => x.CarType.Name)
+    @Html.TextBoxFor(x => x.CarType.Name, new { @class = "form-control" })
+    <br />
     @Html.LabelFor(x => x.Year)
     @Html.TextBoxFor(x => x.Year, new { @class = "form-control" })
     <br />
@@ -26,8 +29,8 @@
     @Html.LabelFor(x => x.Price)
     @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
     <br />
-    @Html.LabelFor(x => x.CarType.Name)
-    @Html.TextBoxFor(x => x.CarType.Name, new { @class = "form-control" })
+    @Html.LabelFor(x => x.CarType)
+    @Html.TextBoxFor(x => x.CarType.ID, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.Color.Name)
     @Html.TextBoxFor(x => x.Color.Name, new { @class = "form-control" })
