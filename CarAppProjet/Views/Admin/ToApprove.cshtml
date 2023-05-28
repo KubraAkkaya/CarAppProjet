@@ -14,7 +14,7 @@
         <th> ARABA MODEL </th>
         <th> ARABA FİYAT </th>
         <th> ARABA ONAY </th>
-        <th> ONAYLA </th>
+        @*<th> ONAYLA </th>*@
         <th> ARABA DÜZENLE </th>
         <th> ARABA DETAYLARI </th>
         <th> ARABA SİL </th>
@@ -27,7 +27,7 @@
             <th> @x.Model.ModelName </th>
             <th> @x.Price </th>
             <th> @x.Approve </th>
-            <th> <a href="/Admin/NewToApprove/@x.ID" class="btn btn-info"><i class="fa fa-trash-o" aria-hidden="true"></i>Onayla</a></th>
+            @*<th> <a href="/Admin/NewToApprove/@x.ID" class="btn btn-info"><i class="fa fa-trash-o" aria-hidden="true"></i>Onayla</a></th>*@
             <th> <a href="/Admin/GetCar/@x.ID" class="btn btn-warning">Düzenle</a></th>
             <th> <a href="/Car/CarDetail/@x.ID" class="btn btn-primary">Detaylar</a></th>
             <th> <a href="/Admin/DeleteCar/@x.ID" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>Sil</a></th>
@@ -35,7 +35,6 @@
     }
 </table>
 
-<a href="/Admin/NewCar" class="btn btn-info" style="font-size:large">ARABA EKLE</a>
 
 
 

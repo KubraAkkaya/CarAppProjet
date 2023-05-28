@@ -28,9 +28,10 @@ namespace CarAppProjet.Controllers
         [HttpPost]
         public ActionResult NewCar(Car c)
         {
+            c.Approve = false;
             ca.Cars.Add(c);
             ca.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("CarOwnerIndex");
         }
 
         // GET: CarOwner (araba silme)
@@ -39,7 +40,7 @@ namespace CarAppProjet.Controllers
             var findedCar = ca.Cars.Find(id);
             ca.Cars.Remove(findedCar);
             ca.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("CarOwnerIndex");
         }
 
         // GET: CarOwner (araba güncelleme)
@@ -51,14 +52,13 @@ namespace CarAppProjet.Controllers
         public ActionResult UpdateCar(Car c)
         {
             var findedCar3 = ca.Cars.Find(c.ID);
-            findedCar3.Brand.ID = c.Brand.ID;
-            findedCar3.Model.ID = c.Model.ID;
+            findedCar3.Brand.BrandName = c.Brand.BrandName;
+            findedCar3.Model.ModelName = c.Model.ModelName;
             findedCar3.PhotoCarURL = c.PhotoCarURL;
             findedCar3.Year = c.Year;
-            findedCar3.CarOwner.ID = c.CarOwner.ID;
-            findedCar3.CarType.ID = c.CarType.ID;
-            findedCar3.City.ID = c.City.ID;
-            findedCar3.Color.ID = c.Color.ID;
+            findedCar3.CarType.Name = c.CarType.Name;
+            findedCar3.City.Name = c.City.Name;
+            findedCar3.Color.Name = c.Color.Name;
             findedCar3.Description = c.Description;
             findedCar3.Doors = c.Doors;
             findedCar3.Engine = c.Engine;
@@ -70,8 +70,9 @@ namespace CarAppProjet.Controllers
             findedCar3.ParkingSensor = c.ParkingSensor;
             findedCar3.CentralLocking = c.CentralLocking;
             findedCar3.FoldableMirror = c.FoldableMirror;
+            findedCar3.Approve = c.Approve;
             ca.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("CarOwnerIndex");
         }
     }
 }
