@@ -17,6 +17,7 @@ namespace CarAppProjet.Models.Classes
         public string FuelType { get; set; }
         public string GearType { get; set; }
         public string Description { get; set; }
+        public string CarOwnerMail { get; set; }
         public string PhotoCarURL { get; set; }
         public int Doors { get; set; }
         public bool FogLights { get; set; } //sis farı

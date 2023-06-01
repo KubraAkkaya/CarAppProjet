@@ -48,13 +48,11 @@ namespace CarAppProjet.Controllers
         [HttpPost]
         public ActionResult LoginCarOwner(CarOwner ad)
         {
-            var info = c.CarOwners.FirstOrDefault(x => x.LastName == ad.LastName && x.Password == ad.Password 
-            && x.FirstName==ad.FirstName && x.ID==ad.ID && x.Mail==ad.Mail && x.Phone==ad.Phone);
+            var info = c.CarOwners.FirstOrDefault(x => x.LastName == ad.LastName && x.Password == ad.Password );
             if (info != null)
             {
                 FormsAuthentication.SetAuthCookie(info.LastName, false);
                 Session["LastName"] = info.LastName.ToString();
-                Session["CarOwnerId"] = info.ID;
                 return RedirectToAction("CarOwnerIndex", "CarOwner");
 
             }

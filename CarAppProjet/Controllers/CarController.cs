@@ -16,27 +16,29 @@ namespace CarAppProjet.Controllers
 
         public ActionResult CarIndex()
         {
-            cbm.ValueCar = c.Cars.Include(i=>i.Brand).Include(i=>i.Model).ToList();
+
+            cbm.ValueCar = c.Cars.Include(i=>i.Brand).Include(i=>i.Model).Where(i=>i.Approve==true).ToList();
+
+            //var car = cbm.ValueBrand.FirstOrDefault(); //seçildiğinde
+
+            //if (car != null)
+            //{
+            //    var Id = car.ID; // Get the brandId from the car object
+
+            //    var modelsByBrand = c.Models
+            //        .Include(i => i.Brand)
+            //        .Where(m => m.Brand.ID == Id)
+            //        .ToList();
+
+            //    cbm.ValueModel = modelsByBrand;
+            //}
+            //else
+            //{
+            //    cbm.ValueModel = new List<Model>(); // Or set it to an empty list if the car is not found
+            //}
+
             cbm.ValueBrand = c.Brands.ToList();
-            var car = cbm.ValueBrand.FirstOrDefault(); //seçildiğinde
-
-            if (car != null)
-            {
-                var Id = car.ID; // Get the brandId from the car object
-
-                var modelsByBrand = c.Models
-                    .Include(i => i.Brand)
-                    .Where(m => m.Brand.ID == Id)
-                    .ToList();
-
-                cbm.ValueModel = modelsByBrand;
-            }
-            else
-            {
-                cbm.ValueModel = new List<Model>(); // Or set it to an empty list if the car is not found
-            }
-
-            //cbm.ValueModel = c.Models.ToList();
+            cbm.ValueModel = c.Models.ToList();
             cbm.ValueColor = c.Colors.ToList();
             cbm.ValueCarOwner = c.CarOwners.ToList();
             cbm.ValueCarType = c.CarTypes.ToList();

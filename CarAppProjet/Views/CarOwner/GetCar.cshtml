@@ -113,8 +113,12 @@
     @Html.LabelFor(x => x.PhotoCarURL)
     @Html.TextBoxFor(x => x.PhotoCarURL, new { @class = "form-control" })
     <br />
+    <p> @Html.LabelFor(x => x.CarOwner) - Mail </p>
+    @Html.TextAreaFor(x => x.CarOwner.Mail, new { @class = "form-control" })
+
+    <br />
     @Html.LabelFor(x => x.Description)
-    @Html.TextAreaFor(x => x.Description, 15, 1, new { @class = "form-control" })
+    @Html.TextAreaFor(x => x.Description, 5, 1, new { @class = "form-control" })
     <br />
     <button class="btn btn-primary" style="font-size:large">Güncelle</button>
     <br />

@@ -97,10 +97,10 @@ img {
 /****-----start-body----****/
 
 body {
+    background-image: url(https://www.nutuk.com.tr/d/news/21963.jpg);
     text-align: center;
     background-size: cover;
     background-attachment: fixed;
-    background-image: url(https://img.freepik.com/premium-photo/modern-cars-are-studio-room-3d-render-illustration_37416-423.jpg?w=360);
 }
 
 

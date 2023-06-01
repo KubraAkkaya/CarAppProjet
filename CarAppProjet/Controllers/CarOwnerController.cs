@@ -15,8 +15,7 @@ namespace CarAppProjet.Controllers
         // GET: CarOwner
         public ActionResult CarOwnerIndex(CarOwner co)
         {
-            int carOwnerId = (int)Session["CarOwnerId"];
-            cbm.ValueCar = ca.Cars.Where(x=>x.CarOwner.ID== carOwnerId).ToList();
+            cbm.ValueCar = ca.Cars.Where(x=>x.CarOwner.LastName== co.LastName).ToList();
             return View(cbm);
         }
 
@@ -31,8 +30,14 @@ namespace CarAppProjet.Controllers
         {
             c.Approve = false;
             ca.Cars.Add(c);
-            ca.SaveChanges();
-            return RedirectToAction("CarOwnerIndex");
+            if (null != ca.CarOwners.Where( i=>i.Mail==c.CarOwnerMail))
+            {
+                ca.SaveChanges();
+                return RedirectToAction("CarOwnerIndex");
+
+            }
+            else { return RedirectToAction("NewCar"); }
+
         }
 
         // GET: CarOwner (araba silme)
@@ -48,6 +53,7 @@ namespace CarAppProjet.Controllers
         public ActionResult GetCar(int id)
         {
             var findedCar2 = ca.Cars.Find(id);
+
             return View("GetCar", findedCar2);
         }
         public ActionResult UpdateCar(Car c)
@@ -55,6 +61,7 @@ namespace CarAppProjet.Controllers
             var findedCar3 = ca.Cars.Find(c.ID);
             findedCar3.Brand.BrandName = c.Brand.BrandName;
             findedCar3.Model.ModelName = c.Model.ModelName;
+            findedCar3.CarOwner.Mail = c.CarOwner.Mail;
             findedCar3.PhotoCarURL = c.PhotoCarURL;
             findedCar3.Year = c.Year;
             findedCar3.CarType.Name = c.CarType.Name;
