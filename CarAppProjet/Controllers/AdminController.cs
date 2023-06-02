@@ -86,35 +86,6 @@ namespace CarAppProjet.Controllers
             return View(cbm);
         }
 
-        //[HttpGet]
-        //public ActionResult NewToApprove()
-        //{
-
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public ActionResult NewToApprove(Car c)
-        //{
-        //    ca.Cars.Add(c);
-        //    ca.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-        //// GET: Admin (onay güncelleme)
-        //public ActionResult GetApprove(int id)
-        //{
-        //    var findedCar2 = ca.Cars.Find(id);
-        //    return View("GetApprove", findedCar2);
-        //}
-
-        //public ActionResult UpdateApprove(Car c)
-        //{
-        //    var findedCar3 = ca.Cars.Find(c.ID);
-        //    findedCar3.Approve = c.Approve;
-        //    ca.SaveChanges();
-        //    return RedirectToAction("ToApprove");
-        //}
-
 
 
         // GET: Admin (yorum listesi)

@@ -12,10 +12,34 @@ namespace CarAppProjet.Controllers
         Context ca = new Context();
         CarBrandModel cbm = new CarBrandModel();
 
+
         // GET: CarOwner
-        public ActionResult CarOwnerIndex(CarOwner co)
+        [Authorize]
+        public ActionResult CarOwnerIndex()
         {
-            cbm.ValueCar = ca.Cars.Where(x=>x.CarOwner.LastName== co.LastName).ToList();
+            string lastName = Session["LastName"] as string;
+            string firstName = Session["FirstName"] as string;
+            string mail = Session["Mail"] as string;
+            string phone = Session["Phone"] as string;
+            string password = Session["Password"] as string;
+            int id = 0;
+
+            if (Session["ID"] != null && int.TryParse(Session["ID"].ToString(), out int parsedId))
+            {
+                id = parsedId;
+            }
+
+            //id si eşleşen arabalar gelsin
+
+            // View'a kullanıcı bilgilerini taşımak
+           // cbm.ValueCar = ca.Cars.Where(i => i.CarOwner.LastName== lastName).ToString(); 
+            ViewBag.LastName = lastName;
+            ViewBag.FirstName = firstName;
+            ViewBag.Mail = mail;
+            ViewBag.Phone = phone;
+            ViewBag.Password = password;
+            ViewBag.ID = id;
+            cbm.ValueCar = ca.Cars.Where(x=>x.CarOwner.ID== id).ToList();
             return View(cbm);
         }
 
@@ -28,15 +52,34 @@ namespace CarAppProjet.Controllers
         [HttpPost]
         public ActionResult NewCar(Car c)
         {
-            c.Approve = false;
-            ca.Cars.Add(c);
-            if (null != ca.CarOwners.Where( i=>i.Mail==c.CarOwnerMail))
-            {
-                ca.SaveChanges();
-                return RedirectToAction("CarOwnerIndex");
+            //Kullanıcı bilgilerini Session'dan almak
+            string lastName = Session["LastName"] as string;
+            string firstName = Session["FirstName"] as string;
+            string mail = Session["Mail"] as string;
+            string phone = Session["Phone"] as string;
+            string password = Session["Password"] as string;
+            int id = (int)Session["ID"];
+            ca.CarOwners.Where(i => i.ID == id).
+                Where(i => i.FirstName == firstName).
+                Where(i => i.LastName == lastName).
+                Where(i => i.Phone == phone).
+                Where(i => i.Password == password).
+                Where(i => i.Mail ==mail).  ToList();
 
-            }
-            else { return RedirectToAction("NewCar"); }
+            ViewBag.owner = ca.Cars.Where(i => i.CarOwner.ID == id).ToList();
+
+            c.Approve= false;
+       
+            ca.Cars.Add(c);
+            ca.SaveChanges();
+            return RedirectToAction("CarOwnerIndex");
+            //if (null != ca.CarOwners.Where( i=>i.Mail==c.CarOwnerMail))
+            //{
+            //    ca.SaveChanges();
+            //    return RedirectToAction("CarOwnerIndex");
+
+            //}
+            //else { return RedirectToAction("NewCar"); }
 
         }
 

@@ -113,8 +113,17 @@
     @Html.LabelFor(x => x.PhotoCarURL)
     @Html.TextBoxFor(x => x.PhotoCarURL, new { @class = "form-control" })
     <br />
-    <p> @Html.LabelFor(x => x.CarOwner) - Mail </p>
-    @Html.TextAreaFor(x => x.CarOwner.Mail, new { @class = "form-control" })
+
+    <p>
+        @Html.LabelFor(x => x.CarOwner.FirstName) :  @Html.DisplayFor(x => x.CarOwner.FirstName)
+        <br />
+        @Html.LabelFor(x => x.CarOwner.LastName)  :  @Html.DisplayFor(x => x.CarOwner.LastName)
+        <br />
+        @Html.LabelFor(x => x.CarOwner.Phone)  :  @Html.DisplayFor(x => x.CarOwner.Phone)
+        <br />
+        @Html.LabelFor(x => x.CarOwner.Mail)  :  @Html.DisplayFor(x => x.CarOwner.Mail)
+        <br />
+    </p>
 
     <br />
     @Html.LabelFor(x => x.Description)

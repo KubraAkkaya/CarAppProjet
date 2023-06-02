@@ -53,6 +53,11 @@ namespace CarAppProjet.Controllers
             {
                 FormsAuthentication.SetAuthCookie(info.LastName, false);
                 Session["LastName"] = info.LastName.ToString();
+                Session["FirstName"] = info.FirstName.ToString();
+                Session["Mail"] = info.Mail.ToString();
+                Session["Phone"] = info.Phone.ToString();
+                Session["Password"] = info.Password.ToString();
+                Session["ID"] = info.ID;
                 return RedirectToAction("CarOwnerIndex", "CarOwner");
 
             }

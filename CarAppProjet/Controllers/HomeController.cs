@@ -12,6 +12,7 @@ namespace CarAppProjet.Controllers
     {
         Context c = new Context();
         CarBrandModel cbm = new CarBrandModel();
+        [Authorize]
         public ActionResult HomeIndex()
         {
             cbm.ValueCar = c.Cars.ToList().Take(3);

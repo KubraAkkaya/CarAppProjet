@@ -206,6 +206,7 @@
     <Content Include="website\assets\images\blog-image-fullscren-1-1920x700.jpg" />
     <Content Include="website\assets\images\car-image-1-1200x600.jpg" />
     <Content Include="website\assets\images\cars.gif" />
+    <Content Include="website\assets\images\carss.gif" />
     <Content Include="website\assets\images\contact-1-720x480.jpg" />
     <Content Include="website\assets\images\features-first-icon.png" />
     <Content Include="website\assets\images\havali.jpg" />
