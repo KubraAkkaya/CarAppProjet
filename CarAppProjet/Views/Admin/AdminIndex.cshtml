@@ -4,9 +4,8 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
-
-<h2>ARABALAR</h2>
+<h5> Admin: @ViewBag.AdminName -@ViewBag.FirstName  @ViewBag.LastName </h5> 
+<h2>ARABALAR</h2> 
 <br />
 <table class="table table-bordered">
     <tr>
@@ -32,5 +31,5 @@
     }
 </table>
 
-<a href="/Admin/NewCar" class="btn btn-info" style="font-size:large">ARABA EKLE</a>
+<a href="/Login/LoginCarOwner" class="btn btn-info" style="font-size:large">ARABA EKLE</a>
 

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CarAppProjet.Models.Classes
 {
-    public abstract class User
+    public abstract class User:ISearch,IAdvertise
     {
         [Key]
         public int ID { get; set; }
@@ -16,5 +16,29 @@ namespace CarAppProjet.Models.Classes
         public string Mail { get; set; }
         public string Password { get; set; }
 
+        public void Add()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AdvertiseSearch()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CarOwnerSearch()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

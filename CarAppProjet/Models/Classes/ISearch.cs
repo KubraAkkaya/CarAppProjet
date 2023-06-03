@@ -10,6 +10,6 @@ namespace CarAppProjet.Models.Classes
     {
         
         void CarOwnerSearch();
-        void AdveritseSearch();
+        void AdvertiseSearch();
     }
 }

@@ -8,6 +8,26 @@ namespace CarAppProjet.Models.Classes
 {
     public class Context:DbContext
     {
+
+        private static Context instance; //singlton tasarım prensibi
+
+        public Context()
+        {
+            // Özel yapıcı metot, sınıf dışında bir örneğin oluşturulmasını engeller.
+        }
+
+        public static Context Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Context();
+                }
+                return instance;
+            }
+        }
+
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CarOwner> CarOwners { get; set; }

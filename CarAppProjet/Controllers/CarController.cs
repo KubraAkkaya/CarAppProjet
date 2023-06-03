@@ -18,25 +18,6 @@ namespace CarAppProjet.Controllers
         {
 
             cbm.ValueCar = c.Cars.Include(i=>i.Brand).Include(i=>i.Model).Where(i=>i.Approve==true).ToList();
-
-            //var car = cbm.ValueBrand.FirstOrDefault(); //seçildiğinde
-
-            //if (car != null)
-            //{
-            //    var Id = car.ID; // Get the brandId from the car object
-
-            //    var modelsByBrand = c.Models
-            //        .Include(i => i.Brand)
-            //        .Where(m => m.Brand.ID == Id)
-            //        .ToList();
-
-            //    cbm.ValueModel = modelsByBrand;
-            //}
-            //else
-            //{
-            //    cbm.ValueModel = new List<Model>(); // Or set it to an empty list if the car is not found
-            //}
-
             cbm.ValueBrand = c.Brands.ToList();
             cbm.ValueModel = c.Models.ToList();
             cbm.ValueColor = c.Colors.ToList();
@@ -55,8 +36,6 @@ namespace CarAppProjet.Controllers
                 .Include(i => i.CarType).ToList();
 
             cbm.ValueComment = c.Comments.Where(a => a.CarId == id).ToList();
-            //cbm.ValueCarOwner = c.CarOwners.ToList();
-            //cbm.ValueBrand = c.Brands.Where(a => a.Id == id).ToList();
             var car = cbm.ValueCar.FirstOrDefault();
 
             if (car != null)
@@ -74,9 +53,6 @@ namespace CarAppProjet.Controllers
             {
                 cbm.ValueModel = new List<Model>(); // Or set it to an empty list if the car is not found
             }
-            //cbm.ValueModel = c.Models.Include(i=>i.Brand).ToList();
-            //cbm.ValueColor = c.Colors.ToList();
-            //cbm.ValueCarType = c.CarTypes.Where(a => a.Id == id).ToList();
 
             return View(cbm);
         }

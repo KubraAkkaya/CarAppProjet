@@ -19,6 +19,28 @@ namespace CarAppProjet.Controllers
         public ActionResult AdminIndex()
         {
             cbm.ValueCar = ca.Cars.Where(x=>x.Approve==true).ToList();
+            string adminName = Session["AdminName"] as string;
+            string lastName = Session["LastName"] as string;
+            string firstName = Session["FirstName"] as string;
+            string mail = Session["Mail"] as string;
+            string phone = Session["Phone"] as string;
+            string password = Session["Password"] as string;
+            int id = 0;
+
+            //id eşleme
+            if (Session["ID"] != null && int.TryParse(Session["ID"].ToString(), out int parsedId))
+            {
+                id = parsedId;
+            }
+
+            // View'a kullanıcı bilgilerini taşımak
+            ViewBag.AdminName = adminName;
+            ViewBag.LastName = lastName;
+            ViewBag.FirstName = firstName;
+            ViewBag.Mail = mail;
+            ViewBag.Phone = phone;
+            ViewBag.Password = password;
+            ViewBag.ID = id;
             return View(cbm);
         }
 

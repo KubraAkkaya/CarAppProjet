@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CarAppProjet.Models.Classes
 {
-    public class Car
+    public class Car: ISearch,IAdvertise
     {
         [Key]
         public int ID { get; set; }
@@ -17,7 +17,6 @@ namespace CarAppProjet.Models.Classes
         public string FuelType { get; set; }
         public string GearType { get; set; }
         public string Description { get; set; }
-        //public string CarOwnerMail { get; set; }
         public string PhotoCarURL { get; set; }
         public int Doors { get; set; }
         public bool FogLights { get; set; } //sis farı
@@ -37,5 +36,30 @@ namespace CarAppProjet.Models.Classes
         public  virtual Color Color { get; set; }
         public  virtual CarType CarType { get; set; }
         public  virtual CarOwner CarOwner { get; set; }
+      
+        public void Add()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AdvertiseSearch()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CarOwnerSearch()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

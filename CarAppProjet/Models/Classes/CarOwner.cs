@@ -8,6 +8,9 @@ namespace CarAppProjet.Models.Classes
 {
     public class CarOwner: User
     {
-
+        public CarOwner()
+        {
+            //kurucu metot
+        }
     }
 }

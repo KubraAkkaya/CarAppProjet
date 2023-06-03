@@ -11,7 +11,7 @@ namespace CarAppProjet.Controllers
     public class LoginController : Controller
     {
         // GET: Admin Login
-        Context c=new Context();
+        Context c = new Context();
 
         public ActionResult LoginIndex()
         {
@@ -26,16 +26,24 @@ namespace CarAppProjet.Controllers
             {
                 FormsAuthentication.SetAuthCookie(info.AdminName, false);
                 Session["AdminName"] = info.AdminName.ToString();
+                Session["LastName"] = info.LastName.ToString();
+                Session["FirstName"] = info.FirstName.ToString();
+                Session["Mail"] = info.Mail.ToString();
+                Session["Phone"] = info.Phone.ToString();
+                Session["Password"] = info.Password.ToString();
+                Session["ID"] = info.ID;
+
                 return RedirectToAction("AdminIndex", "Admin");
 
-            }else
+            }
+            else
                 return View();
         }
 
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("LoginIndex", "Login");
+            return RedirectToAction("CustomerLogin", "Login");
         }
 
 
@@ -48,7 +56,7 @@ namespace CarAppProjet.Controllers
         [HttpPost]
         public ActionResult LoginCarOwner(CarOwner ad)
         {
-            var info = c.CarOwners.FirstOrDefault(x => x.LastName == ad.LastName && x.Password == ad.Password );
+            var info = c.CarOwners.FirstOrDefault(x => x.LastName == ad.LastName && x.Password == ad.Password);
             if (info != null)
             {
                 FormsAuthentication.SetAuthCookie(info.LastName, false);
@@ -65,13 +73,13 @@ namespace CarAppProjet.Controllers
             {
                 return View();
             }
-  
+
         }
 
         public ActionResult LogOutCarOwner()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("LoginCarOwner", "Login");
+            return RedirectToAction("CustomerLogin", "Login");
         }
 
 
@@ -90,6 +98,12 @@ namespace CarAppProjet.Controllers
             {
                 FormsAuthentication.SetAuthCookie(info.Mail, false);
                 Session["Mail"] = info.Mail.ToString();
+                Session["LastName"] = info.LastName.ToString();
+                Session["FirstName"] = info.FirstName.ToString();
+                Session["Mail"] = info.Mail.ToString();
+                Session["Phone"] = info.Phone.ToString();
+                Session["Password"] = info.Password.ToString();
+                Session["ID"] = info.ID;
                 return RedirectToAction("HomeIndex", "Home");
 
             }
