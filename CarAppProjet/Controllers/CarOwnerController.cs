@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace CarAppProjet.Controllers
 {
@@ -30,8 +31,6 @@ namespace CarAppProjet.Controllers
                 id = parsedId;
             }
 
-            
-
             // View'a kullanıcı bilgilerini taşımak
             ViewBag.LastName = lastName;
             ViewBag.FirstName = firstName;
@@ -40,7 +39,7 @@ namespace CarAppProjet.Controllers
             ViewBag.Password = password;
             ViewBag.ID = id;
 
-            cbm.ValueCar = ca.Cars.Where(x => x.CarOwner.ID == id).ToList();
+            cbm.ValueCar = ca.Cars.Include(i=>i.CarOwner).Where(x => x.CarOwner.ID ==id ).ToList();
             return View(cbm);
         }
 
@@ -53,35 +52,13 @@ namespace CarAppProjet.Controllers
         [HttpPost]
         public ActionResult NewCar(Car c)
         {
+            c.Approve = false;
 
-            //Kullanıcı bilgilerini Session'dan almak
-            string lastName = Session["LastName"] as string;
-            string firstName = Session["FirstName"] as string;
-            string mail = Session["Mail"] as string;
-            string phone = Session["Phone"] as string;
-            string password = Session["Password"] as string;
-            int id = 0;
-
-            if (Session["ID"] != null && int.TryParse(Session["ID"].ToString(), out int parsedId))
-            {
-                id = parsedId;
-            }
-
-            ViewBag.LastName = lastName;
-            ViewBag.FirstName = firstName;
-            ViewBag.Mail = mail;
-            ViewBag.Phone = phone;
-            ViewBag.Password = password;
-            ViewBag.ID = id;
-            cbm.ValueCar = ca.Cars.Where(x => x.CarOwner.ID == id).ToList();
-            c.CarOwner.ID= id;
-            c.CarOwner.FirstName= firstName;
-            c.Approve= false;
-       
             ca.Cars.Add(c);
             ca.SaveChanges();
             return View("CarOwnerIndex");
         }
+
 
         // GET: CarOwner (araba silme)
         public ActionResult DeleteCar(int id)
@@ -104,7 +81,6 @@ namespace CarAppProjet.Controllers
             var findedCar3 = ca.Cars.Find(c.ID);
             findedCar3.Brand.BrandName = c.Brand.BrandName;
             findedCar3.Model.ModelName = c.Model.ModelName;
-            findedCar3.CarOwner.Mail = c.CarOwner.Mail;
             findedCar3.PhotoCarURL = c.PhotoCarURL;
             findedCar3.Year = c.Year;
             findedCar3.CarType.Name = c.CarType.Name;

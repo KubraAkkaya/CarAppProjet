@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarAppProjet.Models.Classes
+namespace CarAppProjet.Models.Abstract
 {
-    public interface ISearch
+    internal interface ISearch
     {
-        
         void CarOwnerSearch();
         void AdvertiseSearch();
     }

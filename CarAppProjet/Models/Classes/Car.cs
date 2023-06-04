@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarAppProjet.Models.Abstract;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -24,7 +25,6 @@ namespace CarAppProjet.Models.Classes
         public bool ParkingSensor { get; set; } 
         public bool CentralLocking { get; set; } //merkezi kilit
         public bool GlassCeiling { get; set; } //cam tavan
-
         public bool Approve { get; set; }
         public DateTime PublicationDate { get; set; }
 

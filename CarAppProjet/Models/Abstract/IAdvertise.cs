@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CarAppProjet.Models.Classes
+namespace CarAppProjet.Models.Abstract
 {
-    public interface IAdvertise
+    internal interface IAdvertise
     {
         int ID { get; set; }
-      //  string Name { get; set; }
-
+        //  string Name { get; set; }
         void Add();
         void Update();
         void Delete();

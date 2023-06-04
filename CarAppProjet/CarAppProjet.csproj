@@ -128,6 +128,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Abstract\IAdvertise.cs" />
+    <Compile Include="Models\Abstract\ISearch.cs" />
     <Compile Include="Models\Classes\City.cs" />
     <Compile Include="Models\Classes\About.cs" />
     <Compile Include="Models\Classes\Brand.cs" />
@@ -135,13 +137,11 @@
     <Compile Include="Models\Classes\CarOwner.cs" />
     <Compile Include="Models\Classes\CarType.cs" />
     <Compile Include="Models\Classes\Context.cs" />
-    <Compile Include="Models\Classes\IAdvertise.cs" />
     <Compile Include="Models\Classes\Car.cs" />
     <Compile Include="Models\Classes\Contact.cs" />
     <Compile Include="Models\Classes\Customer.cs" />
     <Compile Include="Models\Classes\HomePage.cs" />
     <Compile Include="Models\Classes\Comment.cs" />
-    <Compile Include="Models\Classes\ISearch.cs" />
     <Compile Include="Models\Classes\User.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\Model.cs" />

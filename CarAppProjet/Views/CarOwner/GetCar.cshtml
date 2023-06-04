@@ -14,6 +14,8 @@
     @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
     <br />
     <p>
+        @Html.LabelFor(x => x.CarOwner.ID) :  @Html.DisplayFor(x => x.CarOwner.ID)
+        <br />
         @Html.LabelFor(x => x.CarOwner.FirstName) :  @Html.DisplayFor(x => x.CarOwner.FirstName)
         <br />
         @Html.LabelFor(x => x.CarOwner.LastName)  :  @Html.DisplayFor(x => x.CarOwner.LastName)
@@ -23,7 +25,6 @@
         @Html.LabelFor(x => x.CarOwner.Mail)  :  @Html.DisplayFor(x => x.CarOwner.Mail)
         <br />
     </p>
-
     <br />
     @Html.LabelFor(x => x.Brand.BrandName)
     @Html.TextBoxFor(x => x.Brand.BrandName, new { @class = "form-control" })
@@ -134,8 +135,6 @@
     @Html.LabelFor(x => x.PhotoCarURL)
     @Html.TextBoxFor(x => x.PhotoCarURL, new { @class = "form-control" })
     <br />
-
-
     @Html.LabelFor(x => x.Description)
     @Html.TextAreaFor(x => x.Description, 5, 1, new { @class = "form-control" })
     <br />
